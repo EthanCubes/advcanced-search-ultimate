@@ -28,14 +28,14 @@ function getQueryElements() {
 function formQuery() {
     query = "";
     for (let i = 0; i < queryElements.all.length; i++) {
-        query += queryElements.all[i] + " ";
+        query += queryElements.all[i] + "%20"; //  whitespace represented in percentage encoding for url
     }
-    query += "\"" + queryElements.specific + "\" ";
+    query += "\"" + queryElements.specific + "\"" + "%20";
     for (let i = 0; i < queryElements.none.length; i++) {
-        query += "-" + queryElements.none[i] + " ";
+        query += "-" + queryElements.none[i] + "%20"; // minus sign does not require percentage encoding
     }
     if (!(queryElements.site === "")) {
-        query += "site:" + queryElements.site;
+        query += "site%3A" + queryElements.site; // colon represented with percentage encoding
     }
 }
 
