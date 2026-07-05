@@ -7,12 +7,10 @@ const engineIntro = {"DuckDuckGo": "https://www.duckduckgo.com/?=",
     "Google": "https://www.google.com/search?hl=en&q="};
 
 const containAll = document.getElementById("containAll");
-const searchEngineSelect = document.getElementById("searchEngineSelect");
+const specific = document.getElementById("specific");
 
 function search() {
-    query = containAll.value;
-    link = engineIntro[engine] + query;
-    window.open(link);
+    query = containAll.value + ' "' + specific.value + '"';
+    navigator.clipboard.writeText(query);
+    alert("Search query copied to clipboard. Paste it into any search engine");
 }
-
-setInterval(function() {engine = searchEngineSelect.value}, 10)
