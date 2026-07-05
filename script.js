@@ -1,6 +1,6 @@
 let query;
 let link;
-let engine;
+let engine = "DuckDuckGo";
 
 let queryElements = {
     all: [],
@@ -9,7 +9,7 @@ let queryElements = {
     site: "",
 };
 
-const engineIntro = {"DuckDuckGo": "https://www.duckduckgo.com/?=",
+const engineIntro = {"DuckDuckGo": "https://www.duckduckgo.com/?q=",
     "StartPage": "https://www.startpage.com/do/metasearch.pl?query=", 
     "Google": "https://www.google.com/search?hl=en&q="};
 
@@ -17,6 +17,7 @@ const all = document.getElementById("all");
 const specific = document.getElementById("specific");
 const none = document.getElementById("none");
 const site = document.getElementById("site");
+const searchEngine = document.getElementById("searchEngine")
 
 function getQueryElements() {
     queryElements.all = all.value.split(/\s+/);
@@ -40,8 +41,9 @@ function formQuery() {
 }
 
 function search() {
+    engine = searchEngine.value;
     getQueryElements();
     formQuery();
-    navigator.clipboard.writeText(query);
-    alert("Search query copied to clipboard. Paste it into any search engine");
+    link = engineIntro[engine] + query;
+    window.open(link);
 }
