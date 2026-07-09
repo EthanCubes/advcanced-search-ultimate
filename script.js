@@ -11,7 +11,11 @@ let queryElements = {
 
 const engineIntro = {"DuckDuckGo": "https://www.duckduckgo.com/?q=",
     "StartPage": "https://www.startpage.com/do/metasearch.pl?query=", 
-    "Google": "https://www.google.com/search?hl=en&q="};
+    "Google": "https://www.google.com/search?hl=en&q=",
+    "Bing": "https://www.bing.com/search?q=",
+    "Yahoo": "https://search.yahoo.com/search?p=",
+    "Ecosia": "https://www.ecosia.org/search?method=index&q="
+};
 
 const all = document.getElementById("all");
 const specific = document.getElementById("specific");
