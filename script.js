@@ -45,5 +45,18 @@ function search() {
     getQueryElements();
     formQuery();
     link = engineIntro[engine] + query;
-    window.open(link);
+
+    //AI code
+    browser.tabs.create({url: link})
+        .then(() => {
+            console.log("tab opened via extension api")
+            window.close();
+        })
+        .catch((error) => {
+            console.log("Failed to open tab: " + error);
+            window.open(link);
+        })
 }
+
+const searchButton = document.getElementById("search");
+searchButton.addEventListener("click", search);
