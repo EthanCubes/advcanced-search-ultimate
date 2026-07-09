@@ -58,5 +58,5 @@ function search() {
         })
 }
 
-const searchButton = document.getElementById("search");
+const searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", search);
